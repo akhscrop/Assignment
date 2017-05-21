@@ -6,12 +6,12 @@ Note: if your cluster enforces selinux and you will be using Host Path for stora
 
 tr --delete '\n' <password.txt >.strippedpassword.txt && mv .strippedpassword.txt password.txt
 
-kubectl create -f https://github.com/akhscrop/Assignment/mysql-wordpress-as/local-volumes.yaml
+kubectl create -f https://raw.githubusercontent.com/akhscrop/Assignment/master/mysql-wordpress-as/local-volumes.yaml
 
 kubectl create secret generic mysql-pass --from-file=password.txt
 
-kubectl create -f https://github.com/akhscrop/Assignment/mysql-wordpress-as/mysql-deployment.yaml
+kubectl create -f https://raw.githubusercontent.com/akhscrop/Assignment/master/mysql-wordpress-as/mysql-deployment.yaml
 
-kubectl create -f https://github.com/akhscrop/Assignment/mysql-wordpress-as/wordpress-deployment.yaml
+kubectl create -f https://raw.githubusercontent.com/akhscrop/Assignment/master/mysql-wordpress-as/wordpress-deployment.yaml
 
 kubectl autoscale deployment wordpress --cpu-percent=50 --min=1 --max=10
